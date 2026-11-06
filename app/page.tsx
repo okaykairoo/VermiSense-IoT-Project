@@ -58,10 +58,15 @@ export default function Dashboard() {
             <div key={reading.id} className={`p-6 rounded-lg shadow-lg border-l-8 ${index === 0 ? 'border-green-500 bg-gray-800' : 'border-gray-600 bg-gray-800/50'}`}>
               <h2 className="text-xl font-semibold mb-4">Bed ID: {reading.bed_id} {index === 0 && "(Latest)"}</h2>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
                 <div className="bg-gray-700 p-3 rounded">
                   <p className="text-sm text-gray-400">Temperature</p>
                   <p className="text-2xl font-bold">{reading.temperature?.toFixed(1)} °C</p>
+                </div>
+
+                <div className="bg-gray-700 p-3 rounded">
+                  <p className="text-sm text-gray-400">Humidity</p>
+                  <p className="text-2xl font-bold">{reading.humidity?.toFixed(1)} %</p>
                 </div>
                 
                 <div className="bg-gray-700 p-3 rounded">
