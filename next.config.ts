@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  // Hide the Next.js development indicator (the round icon in the bottom-left corner).
+  devIndicators: false,
   turbopack: {
     rules: {
       "*.css": {
