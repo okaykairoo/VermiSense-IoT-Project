@@ -22,6 +22,7 @@ export type Reading = {
   temperature: number | null;
   humidity: number | null;
   moisture: number | null;
+  ph: number | null;
   pump_state: boolean | null;
   fan_state: boolean | null;
   created_at: string;

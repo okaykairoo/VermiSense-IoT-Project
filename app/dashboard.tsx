@@ -295,7 +295,7 @@ export default function Dashboard({ adminName, supabaseUrl, supabaseAnonKey }: D
   return (
     <main className="min-h-screen bg-gray-900 text-white p-10 font-sans">
       <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
-        <h1 className="text-4xl font-bold text-green-400">VermiSense Dashboard 🌱</h1>
+        <h1 className="text-4xl font-bold text-green-400">VermiSense Dashboard </h1>
 
         <form action={logout} className="flex items-center gap-3">
           <span className="text-sm text-gray-400">Signed in as {adminName}</span>

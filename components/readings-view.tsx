@@ -1,8 +1,13 @@
 import { bedKey, bedTitle, formatNumber, formatTime, type Reading } from "@/lib/dashboard-data";
 
 export function ReadingTiles({ reading }: { reading: Reading }) {
+  // 1. We added a check for the pH value
+  const phValue = reading.ph !== null && reading.ph !== undefined ? formatNumber(reading.ph, 1) : "Pending";
+  const isPhAlert = reading.ph !== null && reading.ph !== undefined && (reading.ph < 6 || reading.ph > 8);
+
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
+    // 2. Changed md:grid-cols-5 to md:grid-cols-6 to fit the new box
+    <div className="grid grid-cols-2 md:grid-cols-6 gap-5">
       <div className="bg-gray-700 p-3 rounded">
         <p className="text-sm text-gray-400">Temperature</p>
         <p className="text-2xl font-bold">{formatNumber(reading.temperature, 1)} °C</p>
@@ -16,6 +21,14 @@ export function ReadingTiles({ reading }: { reading: Reading }) {
       <div className="bg-gray-700 p-3 rounded">
         <p className="text-sm text-gray-400">Moisture</p>
         <p className="text-2xl font-bold">{formatNumber(reading.moisture)} %</p>
+      </div>
+
+      {/* 3. NEW pH TILE ADDED HERE */}
+      <div className="bg-gray-700 p-3 rounded">
+        <p className="text-sm text-gray-400">pH Level</p>
+        <p className={`text-2xl font-bold ${isPhAlert ? "text-red-400" : "text-green-400"}`}>
+          {phValue}
+        </p>
       </div>
 
       <div className="bg-gray-700 p-3 rounded">
